@@ -1,0 +1,29 @@
+{
+  "threads_url": "https://www.threads.com/@peiru_423/post/DN5DQ60AWm3",
+  "games": [
+    {
+      "game_name": "Deep Rock Galactic",
+      "comment": "DRG 超好玩，我跟朋友玩直接破百小時，一個月沒開過 repo 了。遊戲本身 4 人，但有各種外掛可以到最多 16 人。",
+      "category": "action-puzzle",
+      "threads_author": "@ya_3075814"
+    },
+    {
+      "game_name": "HELLDIVERS 2",
+      "comment": "Helldivers 2 我女友超愛。",
+      "category": "action-puzzle",
+      "threads_author": "@martin175126"
+    },
+    {
+      "game_name": "Left 4 Dead 2",
+      "comment": "L4D 高難模式，不合作就等死。",
+      "category": "horror-strategy",
+      "threads_author": "@lastday1984"
+    },
+    {
+      "game_name": "Sky: Children of the Light",
+      "comment": "真的很厲害耶，在裡面認識超多外國人（日本、墨西哥都有），內建翻譯不用擔心語言不通。",
+      "category": "casual-party",
+      "threads_author": "@xieniyin8"
+    }
+  ]
+}

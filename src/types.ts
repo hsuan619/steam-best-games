@@ -20,6 +20,8 @@ export interface GameRecommendation {
   imageUrl: string;
   /** 前往 Steam 官方商店的網址 */
   steamUrl: string;
+  /** 遊玩人數標籤 (如: 雙人, 4人以上) */
+  playerCount?: string;
 }
 
 /**

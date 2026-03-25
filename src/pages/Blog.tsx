@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { articles } from '../data/articles';
-import { NewsletterBox } from '../components/ui/NewsletterBox';
 import { POPULAR_TAGS } from '../constants';
 
 /**
@@ -14,6 +13,14 @@ export const Blog: React.FC = () => {
   const heroArticle = articles[1]; // Action & Puzzle
   const featuredArticles = [articles[2], articles[3]]; // Sim and Horror
   const listArticles = articles;
+
+  const [visibleCount, setVisibleCount] = useState(5);
+  const visibleArticles = listArticles.slice(0, visibleCount);
+  const hasMore = visibleCount < listArticles.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 5);
+  };
 
   return (
     <main className="max-w-screen-2xl mx-auto px-8 py-12 pt-24">
@@ -33,7 +40,7 @@ export const Blog: React.FC = () => {
             </Link>
           </div>
           <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-[500px]">
-            <img alt="Featured article hero" className="absolute inset-0 w-full h-full object-cover" src={heroArticle.heroImage}/>
+            <img alt="Featured article hero" className="absolute inset-0 w-full h-full object-cover" src={heroArticle.heroImage} />
             <div className="absolute inset-0 bg-gradient-to-r from-surface-container-low to-transparent w-32 hidden lg:block"></div>
           </div>
         </div>
@@ -51,7 +58,7 @@ export const Blog: React.FC = () => {
           {featuredArticles.map((article, index) => (
             <Link key={article.id} to={`/blog/${article.id}`} className="bg-surface-container rounded-xl overflow-hidden group hover:bg-surface-container-high transition-all duration-300 block">
               <div className="h-48 overflow-hidden">
-                <img alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src={article.heroImage}/>
+                <img alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src={article.heroImage} />
               </div>
               <div className="p-8">
                 <span className="text-primary text-[10px] font-bold tracking-widest uppercase mb-4 block">{article.category}</span>
@@ -72,11 +79,11 @@ export const Blog: React.FC = () => {
         <section className="xl:col-span-8">
           <h2 className="font-headline text-2xl font-bold mb-8 border-l-4 border-primary pl-4">All Threads Community Curations</h2>
           <div className="space-y-10">
-            {listArticles.map((article) => (
+            {visibleArticles.map((article) => (
               <Link key={`list-${article.id}`} to={`/blog/${article.id}`} className="group cursor-pointer block">
                 <div className="flex flex-col md:flex-row gap-8 items-start">
                   <div className="w-full md:w-56 aspect-video rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-highest">
-                    <img alt={article.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={article.heroImage}/>
+                    <img alt={article.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={article.heroImage} />
                   </div>
                   <div>
                     <div className="flex items-center gap-3 mb-2">
@@ -90,27 +97,15 @@ export const Blog: React.FC = () => {
               </Link>
             ))}
           </div>
-          <button className="w-full mt-12 py-4 border border-outline-variant/30 rounded-lg text-sm font-bold text-on-surface hover:bg-surface-container transition-colors active:scale-95">
-            Load More Articles
-          </button>
+          {hasMore && (
+            <button 
+              onClick={handleLoadMore}
+              className="w-full mt-12 py-4 border border-outline-variant/30 rounded-lg text-sm font-bold text-on-surface hover:bg-surface-container transition-colors active:scale-95"
+            >
+              Load More Articles
+            </button>
+          )}
         </section>
-
-        {/* Sidebar */}
-        <aside className="xl:col-span-4 space-y-10">
-          {/* Newsletter Box component extracted to ui/NewsletterBox.tsx */}
-          <NewsletterBox />
-
-          <div className="p-6 rounded-xl bg-surface-container-low border border-outline-variant/5">
-            <h4 className="font-bold text-sm mb-4">Popular Tags</h4>
-            <div className="flex flex-wrap gap-2">
-              {POPULAR_TAGS.map(tag => (
-                <span key={tag} className="px-3 py-1 bg-surface-container-highest rounded text-xs font-semibold text-on-surface-variant hover:text-primary cursor-pointer transition-colors">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </aside>
       </div>
     </main>
   );

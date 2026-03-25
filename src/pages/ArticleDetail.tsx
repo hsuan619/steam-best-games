@@ -37,7 +37,7 @@ export const ArticleDetail: React.FC = () => {
           {article.description}
         </p>
         <div className="flex items-center justify-center gap-4">
-          <img alt="Author" className="w-12 h-12 rounded-full border-2 border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwW_6_BvDR7NPgR1p2iSJw0QabThIELnv1VQbM_L1Xt3WCaa__QrQnfaRsOZuiknwvZ-608SsGctpbZ48XcRJx0vbPmj0FSHfNXDBOWINemrKDIDvoQLGNscKj8IeI8jV21lG0aaGlp42biX_2v3X6boLZmM2G_s1LejpCea74MYUx5SUsAI46dj8Y3judT74X3o2VQHBk5SrlzieI1UFrqNBINI6UxuSn2TZ_kb5fC-X5o7Ao8Tc6CkdGCkJk7T6Oyja_q39pXWzg"/>
+          <img alt="Author" className="w-12 h-12 rounded-full border-2 border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwW_6_BvDR7NPgR1p2iSJw0QabThIELnv1VQbM_L1Xt3WCaa__QrQnfaRsOZuiknwvZ-608SsGctpbZ48XcRJx0vbPmj0FSHfNXDBOWINemrKDIDvoQLGNscKj8IeI8jV21lG0aaGlp42biX_2v3X6boLZmM2G_s1LejpCea74MYUx5SUsAI46dj8Y3judT74X3o2VQHBk5SrlzieI1UFrqNBINI6UxuSn2TZ_kb5fC-X5o7Ao8Tc6CkdGCkJk7T6Oyja_q39pXWzg" />
           <div className="text-left">
             <p className="text-sm font-bold text-on-surface">Yoshi Community</p>
             <p className="text-xs text-on-surface-variant">Threads Curated</p>
@@ -47,7 +47,7 @@ export const ArticleDetail: React.FC = () => {
 
       {/* Hero Image */}
       <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden mb-16 shadow-2xl shadow-primary/5 border border-outline-variant/10">
-        <img alt="Hero background" className="w-full h-full object-cover" src={article.heroImage}/>
+        <img alt="Hero background" className="w-full h-full object-cover" src={article.heroImage} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -63,7 +63,7 @@ export const ArticleDetail: React.FC = () => {
 
           <div className="text-center pt-8 border-t border-outline-variant/10">
             <p className="mb-4">還意猶未盡嗎？到我們的首頁尋找更多推薦遊戲！</p>
-            <Link to="/browse" className="primary-gradient text-on-primary px-8 py-3 rounded-md font-bold text-sm inline-flex items-center gap-2 active:scale-95 transition-transform">
+            <Link to="/blog" className="primary-gradient text-on-primary px-8 py-3 rounded-md font-bold text-sm inline-flex items-center gap-2 active:scale-95 transition-transform">
               <span className="material-symbols-outlined text-sm">rocket_launch</span>
               探索更多
             </Link>
@@ -84,14 +84,14 @@ export const ArticleDetail: React.FC = () => {
                   <p className="text-[10px] text-on-surface-variant uppercase tracking-widest">Powered by Threads</p>
                 </div>
               </div>
-              
+
               <div id="threads-embed-container" className="p-6 min-h-[400px] flex flex-col items-center justify-center bg-surface-container-lowest/50 text-center">
                 <span className="material-symbols-outlined text-4xl text-outline-variant/40 mb-3 block">forum</span>
                 <p className="text-sm font-semibold text-on-surface-variant mb-1">Threads Comments Ready</p>
                 <p className="text-xs text-on-surface-variant/70 max-w-[200px]">The Threads integration script will inject community responses here.</p>
               </div>
             </section>
-            
+
             {/* Related Games Quick Links */}
             <section className="bg-surface-container rounded-xl p-6">
               <h3 className="font-headline font-bold mb-4 text-on-surface">Games Featured Here</h3>
@@ -100,7 +100,7 @@ export const ArticleDetail: React.FC = () => {
                   <li key={`sidebar-${game.id}`}>
                     <a href={game.steamUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
                       <div className="w-10 h-10 rounded bg-surface-container-highest overflow-hidden flex-shrink-0">
-                        <img className="w-full h-full object-cover group-hover:scale-110 transition-transform" src={game.imageUrl} alt=""/>
+                        <img className="w-full h-full object-cover group-hover:scale-110 transition-transform" src={game.imageUrl} alt="" />
                       </div>
                       <div className="overflow-hidden">
                         <h4 className="text-sm font-bold text-on-surface group-hover:text-primary transition-colors truncate">{game.title}</h4>
