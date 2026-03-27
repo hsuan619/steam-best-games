@@ -20,6 +20,8 @@ export interface GameRecommendation {
   imageUrl: string;
   /** 前往 Steam 官方商店的網址 */
   steamUrl: string;
+  /** Steam App ID, required for Steam API */
+  steamAppId?: number;
   /** 遊玩人數標籤 (如: 雙人, 4人以上) */
   playerCount?: string;
 }
@@ -70,3 +72,40 @@ export interface Game {
   description: string;
   whyFun?: string;
 }
+
+export interface PricePoint {
+  date: string;
+  price: number;
+  discountPercent: number;
+  isHistoricalLow: boolean;
+  eventName?: string;
+}
+
+export interface SteamSaleData {
+  history: PricePoint[];
+  historicalLowPrice: number;
+  isCurrentHistoricalLow: boolean;
+  avgDiscount: number;
+  recommendation: string;
+  basePrice: number;
+  currentPrice: number;
+}
+
+export interface SteamHoverTrackerProps {
+  appId?: number;
+  imageUrl: string;
+  title: string;
+}
+
+export interface SteamLiveGame {
+  appId: number;
+  title: string;
+  isLive: boolean;
+  viewers: number;
+  streamerName: string;
+  previewImageUrl: string;
+  recommendations: number;
+  gameUrl: string;
+}
+
+export type SteamLiveStatus = 'loading' | 'active' | 'empty' | 'hidden';

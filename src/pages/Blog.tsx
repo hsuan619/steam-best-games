@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { articles } from '../data/articles';
 import { POPULAR_TAGS } from '../constants';
+import { ThreadsCurationsCarousel } from '../components/ui/ThreadsCurationsCarousel';
 
 /**
  * @component Blog
@@ -12,15 +13,6 @@ export const Blog: React.FC = () => {
 
   const heroArticle = articles[1]; // Action & Puzzle
   const featuredArticles = [articles[2], articles[3]]; // Sim and Horror
-  const listArticles = articles;
-
-  const [visibleCount, setVisibleCount] = useState(5);
-  const visibleArticles = listArticles.slice(0, visibleCount);
-  const hasMore = visibleCount < listArticles.length;
-
-  const handleLoadMore = () => {
-    setVisibleCount(prev => prev + 5);
-  };
 
   return (
     <main className="max-w-screen-2xl mx-auto px-8 py-12 pt-24">
@@ -55,7 +47,7 @@ export const Blog: React.FC = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {featuredArticles.map((article, index) => (
+          {featuredArticles.map((article) => (
             <Link key={article.id} to={`/blog/${article.id}`} className="bg-surface-container rounded-xl overflow-hidden group hover:bg-surface-container-high transition-all duration-300 block">
               <div className="h-48 overflow-hidden">
                 <img alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src={article.heroImage} />
@@ -74,39 +66,8 @@ export const Blog: React.FC = () => {
         </div>
       </section>
 
-      <div className="grid grid-cols-1 xl:grid-cols-12 gap-16">
-        {/* Main Feed */}
-        <section className="xl:col-span-8">
-          <h2 className="font-headline text-2xl font-bold mb-8 border-l-4 border-primary pl-4">All Threads Community Curations</h2>
-          <div className="space-y-10">
-            {visibleArticles.map((article) => (
-              <Link key={`list-${article.id}`} to={`/blog/${article.id}`} className="group cursor-pointer block">
-                <div className="flex flex-col md:flex-row gap-8 items-start">
-                  <div className="w-full md:w-56 aspect-video rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-highest">
-                    <img alt={article.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={article.heroImage} />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-primary font-bold text-[10px] uppercase tracking-widest">{article.category}</span>
-                      <span className="text-on-surface-variant text-[10px]">{article.date}</span>
-                    </div>
-                    <h3 className="font-headline text-xl font-bold mb-2 group-hover:text-primary transition-colors">{article.title}</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed line-clamp-2">{article.description}</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-          {hasMore && (
-            <button 
-              onClick={handleLoadMore}
-              className="w-full mt-12 py-4 border border-outline-variant/30 rounded-lg text-sm font-bold text-on-surface hover:bg-surface-container transition-colors active:scale-95"
-            >
-              Load More Articles
-            </button>
-          )}
-        </section>
-      </div>
+      {/* All Threads Community Curations — Horizontal Carousel */}
+      <ThreadsCurationsCarousel articles={articles} />
     </main>
   );
 };

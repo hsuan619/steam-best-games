@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { SteamHoverTracker } from '../components/SteamHoverTracker';
 
 export const GameDetail: React.FC = () => {
   return (
@@ -41,8 +42,10 @@ export const GameDetail: React.FC = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="group relative aspect-video rounded-xl overflow-hidden bg-surface-container shadow-2xl">
-                <img alt="Gameplay clip 1" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy9GsorLK1jn0QaCEainIdrPAWaQTLfZBDyKHfWPQeafqRF2vxG6ad9x7zn9fs07NNsjsRWq1PA5oBpEU5HDouclhgXK97SrnHCSLpPMpWb65a9nipdg5Zk40N9TS9Qm_rl-SWDolFXpDWH67ntRdVb4ofKvmxBjFvPIwI-zXpW8o6rI52mOHeWlzoXCxEhdKgfNSrANTF0UQyyDkTXs4ZAqv4cFzuSz4R2F_DTXbZUst8IYa_fPU5WukoawpfwMG8DIY6yR5rlXFm"/>
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 w-full h-full">
+                  <SteamHoverTracker title="NEON ALLIANCE" imageUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuBy9GsorLK1jn0QaCEainIdrPAWaQTLfZBDyKHfWPQeafqRF2vxG6ad9x7zn9fs07NNsjsRWq1PA5oBpEU5HDouclhgXK97SrnHCSLpPMpWb65a9nipdg5Zk40N9TS9Qm_rl-SWDolFXpDWH67ntRdVb4ofKvmxBjFvPIwI-zXpW8o6rI52mOHeWlzoXCxEhdKgfNSrANTF0UQyyDkTXs4ZAqv4cFzuSz4R2F_DTXbZUst8IYa_fPU5WukoawpfwMG8DIY6yR5rlXFm" />
+                </div>
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                   <span className="material-symbols-outlined text-white text-6xl">play_circle</span>
                 </div>
                 <div className="absolute bottom-4 left-4">
@@ -50,8 +53,10 @@ export const GameDetail: React.FC = () => {
                 </div>
               </div>
               <div className="group relative aspect-video rounded-xl overflow-hidden bg-surface-container shadow-2xl">
-                <img alt="Gameplay clip 2" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfTt9GeVPKf48CtjBfjZsxUH4_JP3be4UUBdg74m-pr8ZBlCozp-Bh-lJXylDVthb1cz83Bc5L2GMZkw8ZZmhHZSWkTcq71SyueSCQ6HCp77LdvfmY8InjZ3s-eGyEyoTpt334f8JsJaaRdb3VEzv8XnQoxH29Fl9edcLS4iR8Pzy8x0XzASUpyIcga-33t1QYGA8WbICKKjNqVRNA0XyCmMZhV7OCg1P8S-ulY2U1aTn_b9L5RuTu2pAkx43GyEpuJ81sg1CPA6bB"/>
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 w-full h-full">
+                  <SteamHoverTracker title="NEON ALLIANCE" imageUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuDfTt9GeVPKf48CtjBfjZsxUH4_JP3be4UUBdg74m-pr8ZBlCozp-Bh-lJXylDVthb1cz83Bc5L2GMZkw8ZZmhHZSWkTcq71SyueSCQ6HCp77LdvfmY8InjZ3s-eGyEyoTpt334f8JsJaaRdb3VEzv8XnQoxH29Fl9edcLS4iR8Pzy8x0XzASUpyIcga-33t1QYGA8WbICKKjNqVRNA0XyCmMZhV7OCg1P8S-ulY2U1aTn_b9L5RuTu2pAkx43GyEpuJ81sg1CPA6bB" />
+                </div>
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                   <span className="material-symbols-outlined text-white text-6xl">play_circle</span>
                 </div>
                 <div className="absolute bottom-4 left-4">
