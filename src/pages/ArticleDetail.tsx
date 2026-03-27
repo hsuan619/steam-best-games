@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { articles } from '../data/articles';
 import { ArticleGameCard } from '../components/ui/ArticleGameCard';
 import { SteamHoverTracker } from '../components/SteamHoverTracker';
@@ -17,6 +18,9 @@ export const ArticleDetail: React.FC = () => {
   if (!article) {
     return (
       <main className="max-w-screen-xl mx-auto px-8 py-32 text-center text-on-surface">
+        <Helmet>
+          <title>找不到文章 | 四隻鳥遊戲推薦</title>
+        </Helmet>
         <h1 className="text-4xl font-bold mb-4 font-headline">找不到該主題文章</h1>
         <Link to="/" className="text-primary hover:underline font-bold">返回首頁</Link>
       </main>
@@ -25,6 +29,12 @@ export const ArticleDetail: React.FC = () => {
 
   return (
     <main className="max-w-screen-xl mx-auto px-8 py-12 pt-28">
+      <Helmet>
+        <title>{article.title} | {article.category}遊戲推薦 | 四隻鳥遊戲推薦</title>
+        <meta name="description" content={article.description} />
+        <meta property="og:title" content={`${article.title} - ${article.category}精選推薦`} />
+        <meta property="og:image" content={article.heroImage} />
+      </Helmet>
       {/* Article Header */}
       <header className="mb-12 max-w-4xl mx-auto text-center">
         <div className="flex items-center justify-center gap-3 mb-6">
@@ -69,26 +79,32 @@ export const ArticleDetail: React.FC = () => {
           </div>
         </article>
 
-        {/* Sidebar / Community Discussion */}
+        {/* Sidebar */}
         <aside className="lg:col-span-4">
           <div className="sticky top-28 space-y-10">
-            {/* Embedded Threads Container */}
-            <section className="bg-surface-container-low rounded-xl border border-outline-variant/10 overflow-hidden shadow-2xl shadow-primary/5">
-              <div className="bg-surface-container p-4 flex items-center gap-3 border-b border-outline-variant/10">
-                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
-                  <span className="text-white font-black text-xl leading-none">@</span>
-                </div>
-                <div>
-                  <h3 className="font-headline font-bold text-sm text-on-surface">Community Discussion</h3>
-                  <p className="text-[10px] text-on-surface-variant uppercase tracking-widest">Powered by Threads</p>
-                </div>
-              </div>
-
-              <div id="threads-embed-container" className="p-6 min-h-[400px] flex flex-col items-center justify-center bg-surface-container-lowest/50 text-center">
-                <span className="material-symbols-outlined text-4xl text-outline-variant/40 mb-3 block">forum</span>
-                <p className="text-sm font-semibold text-on-surface-variant mb-1">Threads Comments Ready</p>
-                <p className="text-xs text-on-surface-variant/70 max-w-[200px]">The Threads integration script will inject community responses here.</p>
-              </div>
+            {/* Related Games Quick Links */}
+            <section className="bg-surface-container rounded-xl p-6 border border-outline-variant/10 shadow-2xl shadow-primary/5">
+              <h3 className="font-headline font-bold mb-4 text-on-surface">本篇推薦遊戲清單</h3>
+              <ul className="space-y-3">
+                {article.games.slice(0, 10).map(game => (
+                  <li key={`sidebar-${game.id}`}>
+                    <button 
+                      onClick={() => {
+                        document.getElementById(`game-${game.id}`)?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="w-full text-left flex items-center gap-3 group focus:outline-none"
+                    >
+                      <div className="w-10 h-10 rounded bg-surface-container-highest overflow-hidden flex-shrink-0">
+                        <img className="w-full h-full object-cover group-hover:scale-110 transition-transform" src={game.imageUrl} alt=""/>
+                      </div>
+                      <div className="overflow-hidden">
+                        <h4 className="text-sm font-bold text-on-surface group-hover:text-primary transition-colors truncate">{game.title}</h4>
+                        <p className="text-[10px] text-on-surface-variant uppercase truncate">{article.category}</p>
+                      </div>
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </section>
           </div>
         </aside>

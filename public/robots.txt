@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hsuan619.github.io/steam-best-games/sitemap.xml

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { articles } from '../data/articles';
 import { POPULAR_TAGS } from '../constants';
 import { ThreadsCurationsCarousel } from '../components/ui/ThreadsCurationsCarousel';
@@ -16,6 +17,9 @@ export const Blog: React.FC = () => {
   if (articles.length === 0) {
     return (
       <main className="max-w-screen-2xl mx-auto px-8 py-32 text-center text-on-surface">
+        <Helmet>
+          <title>目前沒有文章 | 四隻鳥遊戲推薦</title>
+        </Helmet>
         <h2 className="text-2xl font-bold font-headline mb-4">目前沒有推薦文章</h2>
         <p className="text-on-surface-variant">請稍後再回來查看社群精選遊戲！</p>
       </main>
@@ -24,6 +28,10 @@ export const Blog: React.FC = () => {
 
   return (
     <main className="max-w-screen-2xl mx-auto px-8 py-12 pt-24">
+      <Helmet>
+        <title>Steam遊戲推薦｜20+款多人必玩清單 | 四隻鳥遊戲推薦</title>
+        <meta name="description" content="精選 Steam 2026 必玩多人遊戲推薦，包含雙人合作、派對遊戲與驚悚冒險。從 Threads 社群中挖掘最真實的玩家評價。" />
+      </Helmet>
       {/* Editor's Picks / Bento Grid */}
       <section className="mb-24">
         <div className="flex justify-between items-end mb-8">

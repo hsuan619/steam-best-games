@@ -23,7 +23,7 @@ interface ArticleGameCardProps {
  */
 export const ArticleGameCard: React.FC<ArticleGameCardProps> = ({ game, index }) => {
   return (
-    <div className="bg-surface-container-low border-l-4 border-primary p-6 rounded-r-xl my-10 shadow-lg shadow-black/20">
+    <div id={`game-${game.id}`} className="bg-surface-container-low border-l-4 border-primary p-6 rounded-r-xl my-10 shadow-lg shadow-black/20 scroll-mt-24">
       <h3 className="font-headline text-3xl font-bold text-on-surface mb-3 flex items-center gap-3">
         <span className="text-primary">{index + 1}.</span> {game.title}
       </h3>
