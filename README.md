@@ -21,8 +21,8 @@ Before you begin, ensure you have the following installed on your machine:
 1. **Clone the repository:**
    Open your terminal (PowerShell, Command Prompt, or MacOS Terminal) and run:
    ```bash
-   git clone https://github.com/hsuan619/seo_game.git
-   cd seo_game
+   git clone [https://github.com/hsuan619/seo_game.git](https://github.com/hsuan619/steam-best-games.git)
+   cd steam-best-games
    ```
 
 2. **Install dependencies:**
