@@ -5,9 +5,7 @@ import { NavOption } from './types';
  * 集中管理連結路徑，避免在多處使用 Magic Strings。
  */
 export const NAV_LINKS: NavOption[] = [
-  { label: 'Home', href: '/' },
-  { label: 'Browse', href: '/browse' },
-  { label: 'Blog', href: '/blog' }
+  { label: 'Blog', href: '/' }
 ];
 
 /**

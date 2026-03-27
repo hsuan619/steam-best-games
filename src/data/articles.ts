@@ -71,7 +71,7 @@ export const articles: Article[] = [
     "date": "MAR 25, 2026",
     "title": "🎉 輕鬆派對與休閒合作 (Casual Party & Co-op)",
     "description": "不論是互雷還是神隊友，這些休閒與派對遊戲絕對能為你的聚會帶來滿滿的笑聲（或爭執）。",
-    "heroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuDTNkjslBtLqoVuEuIP5TaATXf2fuCUVysB3UfV1xX5NkBrLqOoI5lTVzSMKEjMAuYMLuET_rX34QEWHOL5kdz_pnJpPjrFjHxDKNL1ROwGcWKYkOpIlWBXKl-zQzW7C2ptYLEbCJtsBbROIgGjjmpDt9Xkd3Mz-pG6Tsap3WgcT1RLd9WwddxVS3lOprEmO5M_u2bpeqvX1QBaXbzW4mGr5Ul02s-ICMxtTIaT-acWE3cRh7tIoRcZY6La-ri1jNi6E7ZKjYz4S8pD",
+    "heroImage": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2915/PjDeOJk0Ka8oaSJjx8SM9Ozf.jpg",
     "games": [
       {
         "id": 477160,
@@ -162,7 +162,7 @@ export const articles: Article[] = [
     "date": "MAR 25, 2026",
     "title": "🧩 動作冒險與解謎闖關 (Action Adventure & Puzzle)",
     "description": "透過絕佳的雙人默契與技術，共同破解難題或擊敗強大的首領。以下是 Steam 上評價最高的雙人合作神作。",
-    "heroImage": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1426210/header.jpg",
+    "heroImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222700/capsule_616x353.jpg?t=1730912036",
     "games": [
       {
         "id": 1426210,

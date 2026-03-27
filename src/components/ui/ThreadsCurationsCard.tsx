@@ -14,7 +14,7 @@ interface Props {
 export const ThreadsCurationsCard: React.FC<Props> = ({ article }) => {
   return (
     <Link
-      to={`/blog/${article.id}`}
+      to={`/${article.id}`}
       className="group flex-shrink-0 w-72 bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
     >
       {/* Cover image */}

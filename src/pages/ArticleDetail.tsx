@@ -38,21 +38,14 @@ export const ArticleDetail: React.FC = () => {
         <p className="text-on-surface-variant text-xl font-light leading-relaxed mb-8">
           {article.description}
         </p>
-        <div className="flex items-center justify-center gap-4">
-          <img alt="Author" className="w-12 h-12 rounded-full border-2 border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwW_6_BvDR7NPgR1p2iSJw0QabThIELnv1VQbM_L1Xt3WCaa__QrQnfaRsOZuiknwvZ-608SsGctpbZ48XcRJx0vbPmj0FSHfNXDBOWINemrKDIDvoQLGNscKj8IeI8jV21lG0aaGlp42biX_2v3X6boLZmM2G_s1LejpCea74MYUx5SUsAI46dj8Y3judT74X3o2VQHBk5SrlzieI1UFrqNBINI6UxuSn2TZ_kb5fC-X5o7Ao8Tc6CkdGCkJk7T6Oyja_q39pXWzg" />
-          <div className="text-left">
-            <p className="text-sm font-bold text-on-surface">Yoshi Community</p>
-            <p className="text-xs text-on-surface-variant">Threads Curated</p>
-          </div>
-        </div>
       </header>
 
       {/* Hero Image */}
       <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden mb-16 shadow-2xl shadow-primary/5 border border-outline-variant/10 relative">
-        <SteamHoverTracker 
-          appId={article.games[0]?.steamAppId || article.games[0]?.id} 
-          title={article.games[0]?.title || article.title} 
-          imageUrl={article.heroImage} 
+        <SteamHoverTracker
+          appId={article.games[0]?.steamAppId || article.games[0]?.id}
+          title={article.games[0]?.title || article.title}
+          imageUrl={article.heroImage}
         />
       </div>
 
@@ -69,7 +62,7 @@ export const ArticleDetail: React.FC = () => {
 
           <div className="text-center pt-8 border-t border-outline-variant/10">
             <p className="mb-4">還意猶未盡嗎？到我們的首頁尋找更多推薦遊戲！</p>
-            <Link to="/blog" className="primary-gradient text-on-primary px-8 py-3 rounded-md font-bold text-sm inline-flex items-center gap-2 active:scale-95 transition-transform">
+            <Link to="/" className="primary-gradient text-on-primary px-8 py-3 rounded-md font-bold text-sm inline-flex items-center gap-2 active:scale-95 transition-transform">
               <span className="material-symbols-outlined text-sm">rocket_launch</span>
               探索更多
             </Link>

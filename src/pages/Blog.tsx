@@ -11,13 +11,12 @@ import { ThreadsCurationsCarousel } from '../components/ui/ThreadsCurationsCarou
  */
 export const Blog: React.FC = () => {
 
-  const heroArticle = articles[1]; // Action & Puzzle
-  const featuredArticles = [articles[2], articles[3]]; // Sim and Horror
+  const featuredArticles = [articles[0], articles[1]]; // Sim and Horror
 
   return (
     <main className="max-w-screen-2xl mx-auto px-8 py-12 pt-24">
-      {/* Featured Hero Section */}
-      <section className="mb-20">
+      Featured Hero Section
+      {/* <section className="mb-20">
         <div className="bg-surface-container-low rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl shadow-primary/5 border border-outline-variant/10">
           <div className="lg:w-1/2 p-12 md:p-16 lg:p-20 flex flex-col justify-center bg-gradient-to-br from-surface-container-low to-surface-container">
             <div className="flex items-center gap-3 mb-6">
@@ -26,7 +25,7 @@ export const Blog: React.FC = () => {
             </div>
             <h1 className="font-headline text-5xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.1]">{heroArticle.title}</h1>
             <p className="text-on-surface-variant text-lg font-light leading-relaxed mb-8 max-w-2xl">{heroArticle.description}</p>
-            <Link to={`/blog/${heroArticle.id}`} className="primary-gradient text-on-primary px-8 py-3 rounded-md font-bold text-sm tracking-tight transition-transform active:scale-95 flex items-center gap-2 group/btn w-max">
+            <Link to={`/${heroArticle.id}`} className="primary-gradient text-on-primary px-8 py-3 rounded-md font-bold text-sm tracking-tight transition-transform active:scale-95 flex items-center gap-2 group/btn w-max">
               Read Full Story
               <span className="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1" style={{ fontVariationSettings: "'FILL' 0" }}>arrow_forward</span>
             </Link>
@@ -36,7 +35,7 @@ export const Blog: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-surface-container-low to-transparent w-32 hidden lg:block"></div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Editor's Picks / Bento Grid */}
       <section className="mb-24">
@@ -48,7 +47,7 @@ export const Blog: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {featuredArticles.map((article) => (
-            <Link key={article.id} to={`/blog/${article.id}`} className="bg-surface-container rounded-xl overflow-hidden group hover:bg-surface-container-high transition-all duration-300 block">
+            <Link key={article.id} to={`/${article.id}`} className="bg-surface-container rounded-xl overflow-hidden group hover:bg-surface-container-high transition-all duration-300 block">
               <div className="h-48 overflow-hidden">
                 <img alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src={article.heroImage} />
               </div>

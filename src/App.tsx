@@ -2,11 +2,8 @@ import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { TopNavBar } from './components/TopNavBar';
-import { Home } from './pages/Home';
-import { Discovery } from './pages/Discovery';
 import { Blog } from './pages/Blog';
 import { ArticleDetail } from './pages/ArticleDetail';
-import { GameDetail } from './pages/GameDetail';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -23,11 +20,8 @@ export default function App() {
         <TopNavBar />
         <div className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/browse" element={<Discovery />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<ArticleDetail />} />
-            <Route path="/game/:id" element={<GameDetail />} />
+            <Route path="/" element={<Blog />} />
+            <Route path="/:id" element={<ArticleDetail />} />
           </Routes>
         </div>
         <Footer />
