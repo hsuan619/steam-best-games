@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { articles } from '../data/articles';
 import { ArticleGameCard } from '../components/ui/ArticleGameCard';
+import { SteamHoverTracker } from '../components/SteamHoverTracker';
+import { SteamLiveFloatingWidget } from '../components/SteamLiveFloatingWidget';
 
 export const ArticleDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -46,8 +48,12 @@ export const ArticleDetail: React.FC = () => {
       </header>
 
       {/* Hero Image */}
-      <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden mb-16 shadow-2xl shadow-primary/5 border border-outline-variant/10">
-        <img alt="Hero background" className="w-full h-full object-cover" src={article.heroImage} />
+      <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden mb-16 shadow-2xl shadow-primary/5 border border-outline-variant/10 relative">
+        <SteamHoverTracker 
+          appId={article.games[0]?.steamAppId || article.games[0]?.id} 
+          title={article.games[0]?.title || article.title} 
+          imageUrl={article.heroImage} 
+        />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -99,8 +105,8 @@ export const ArticleDetail: React.FC = () => {
                 {article.games.slice(0, 5).map(game => (
                   <li key={`sidebar-${game.id}`}>
                     <a href={game.steamUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
-                      <div className="w-10 h-10 rounded bg-surface-container-highest overflow-hidden flex-shrink-0">
-                        <img className="w-full h-full object-cover group-hover:scale-110 transition-transform" src={game.imageUrl} alt="" />
+                      <div className="w-10 h-10 rounded bg-surface-container-highest flex-shrink-0 relative">
+                        <SteamHoverTracker appId={game.steamAppId || game.id} title={game.title} imageUrl={game.imageUrl} />
                       </div>
                       <div className="overflow-hidden">
                         <h4 className="text-sm font-bold text-on-surface group-hover:text-primary transition-colors truncate">{game.title}</h4>
@@ -114,6 +120,8 @@ export const ArticleDetail: React.FC = () => {
           </div>
         </aside>
       </div>
+
+      <SteamLiveFloatingWidget games={article.games} category={article.category} />
     </main>
   );
 };

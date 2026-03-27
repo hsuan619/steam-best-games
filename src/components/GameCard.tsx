@@ -2,6 +2,7 @@ import React from 'react';
 import { Game } from '../types';
 import { Users, Play } from 'lucide-react';
 import { motion } from 'motion/react';
+import { SteamHoverTracker } from './SteamHoverTracker';
 
 interface GameCardProps {
   game: Game;
@@ -14,13 +15,8 @@ export const GameCard: React.FC<GameCardProps> = ({ game }) => {
       className="group relative bg-surface rounded-xl overflow-hidden transition-all duration-300 border border-outline/5"
     >
       <div className="aspect-video w-full relative overflow-hidden">
-        <img
-          src={game.image}
-          alt={game.title}
-          className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-500"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+        <SteamHoverTracker appId={game.id} title={game.title} imageUrl={game.image} />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent pointer-events-none" />
         <div className="absolute top-4 left-4 glass-panel px-3 py-1 rounded-full flex items-center gap-2">
           <Users className="w-3 h-3 text-primary" />
           <span className="text-[10px] font-bold tracking-widest uppercase">{game.players}</span>

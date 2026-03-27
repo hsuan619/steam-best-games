@@ -1,5 +1,6 @@
 import React from 'react';
 import { GameRecommendation } from '../../types';
+import { SteamHoverTracker } from '../SteamHoverTracker';
 
 /**
  * `<ArticleGameCardProps>` 介面定義
@@ -39,17 +40,13 @@ export const ArticleGameCard: React.FC<ArticleGameCardProps> = ({ game, index })
         <div className="text-[10px] uppercase font-bold text-primary mt-2 tracking-widest">— Threads 推文節錄</div>
       </div>
 
-      {/* 4. 相關影片/圖片 */}
-      <div className="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/20 shadow-xl group">
-        <div className="aspect-video relative overflow-hidden bg-black/50">
-          <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" src={game.imageUrl} alt={game.title}/>
-          {/* Fake Play Button overlaying the image to fulfill "video" visualization */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity">
-            <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-md scale-90 group-hover:scale-100 transition-transform shadow-lg shadow-primary/20">
-              <span className="material-symbols-outlined text-white text-3xl drop-shadow" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
-            </div>
-          </div>
-        </div>
+      {/* 4. 相關影片/圖片 (Hover 自動觸發 Steam 追蹤面板) */}
+      <div className="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/20 shadow-xl group flex flex-col">
+        <SteamHoverTracker 
+          appId={game.steamAppId || game.id} 
+          imageUrl={game.imageUrl} 
+          title={game.title} 
+        />
         
         {/* 5. Steam 連結 */}
         <div className="p-5 flex justify-between items-center bg-surface-container-high/30">
